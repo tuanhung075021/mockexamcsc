@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Bài Test Đánh Giá Đầu Vào</title>
+    <link rel="icon" type="image/jpeg" href="hung.png" />
+    <style>
+      * {
+      box-sizing:border-box;
+      }
+
+      body {
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #ffffff);
+        padding: 0.2rem;
+      }
+      .container {
+        width: 100%;
+        max-width: 960px; /* tăng max-width nếu muốn khung rộng hơn trên màn hình lớn */
+        margin: auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        padding: clamp(1rem, 4vw, 2.5rem); /* padding co giãn theo màn hình */
+      }
+
+      h2 {
+        font-size: clamp(1rem, 3.5vw, 1.5rem);        margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: clamp(1rem, 50vw, 1.5rem);        margin-bottom: 1rem;
+      }
+      .question {
+        margin-bottom: 2rem;
+        animation: fadeIn 0.4s ease-in-out;
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+     .option {
+        display: block;
+        width: 100%;
+        font-size: clamp(1rem, 2.5vw, 1.5rem);        margin-bottom: 1rem;
+        font-weight: 500;
+        background: #f9fafb;
+        padding: 0.85rem 1rem;
+        margin-bottom: 0.75rem;
+        border: 2px solid transparent;
+        border-radius: 14px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        text-align: left;
+        box-sizing: border-box;
+        max-width: 100%;
+      } 
+
+     .option:hover {
+         background: #e0e7ff;
+         border-color: #6366f1;
+         transform: scale(1.02);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+      border-radius: 12px;
+      }
+     }
+
+      .progress {
+         height: 12px;
+         background: #e2e8f0;
+         border-radius: 999px;
+         overflow: hidden;
+         margin-top: 1.5rem;
+      }
+      .progress-bar {
+          height: 100%;
+          background: linear-gradient(to right, #60a5fa, #3b82f6);
+         border-radius: 999px;
+      }
+
+      .text-center {
+        text-align:left;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .info-card {
+        max-width: 600px;
+        margin: 20px auto;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.6s ease-in-out;
+      }
+      .info-card h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      }
+        .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #1e293b;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+
+  #infoForm button {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+  }
+
+  #infoForm button:hover {
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+    transform: scale(1.02);
+  }
+
+  form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23667" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+form select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+    </style>
+   </head>
+  <body>
+
+    <a href="index.html" style="text-decoration: none;">
+  <div style="display: flex; align-items: center; gap: 12px; padding: 16px 24px;">
+    <img src="https://raw.githubusercontent.com/tuanhung075021/csc/main/hung.png" alt="Logo" style="width: 80px; max-width: 100%;" />
+  <h1 style="margin: 0; font-size: 20px; color: #1A2A3A; font-weight: 100; font-family: fantasy; flex: 1;">
+      C.S.C - NHT Computer Science Club
+    </h1>
+  </div>
+</a>
+
+    <div class="container">
+      <div class="header">
+      </div>
+
+      <div class="info-card">
+        <form id="infoForm">
+                  <h1>🎉 Chào mừng bạn đến với Bài đánh giá đầu vào CLB Tin học NHT!</h1>
+        <p>🧠 Hãy sẵn sàng thể hiện tư duy và khả năng của bạn nhé!</p>
+          <h1>🔎 Thông tin cá nhân</h1>
+
+          <div class="form-group">
+            <label>Họ và tên:</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="form-group">
+            <label>Lớp:</label>
+            <input type="text" name="class" required />
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" />
+          </div>
+
+          <div class="form-group">
+            <label>Chọn mảng bạn muốn tham gia:</label>
+            <select id="field" required>
+              <option value="" disabled selected>-- Chọn một mảng --</option>
+              <option value="design">Thiết kế</option>
+              <option value="programming">Lập trình</option>
+              <option value="hardware">Phần cứng</option>
+              <option value="media">Truyền thông</option>
+            </select>
+          </div>
+
+          <button type="submit">🚀 Bắt đầu làm bài</button>
+        </form>
+      </div>
+
+      <div class="container" id="quizContainer" style="display: none;">
+        <div id="quiz"></div>
+      </div>
+
+    <script>
+      // Câu hỏi theo từng mảng
+      const questionSets = {
+        design: [
+          {
+            question: "Khi tạo một thiết kế banner, điều nào sau đây là QUAN TRỌNG NHẤT?",
+            options: ["Tiêu đề rõ ràng", "Dùng nhiều font chữ", "Màu sắc hài hòa", "Ghi bằng chữ in hoa"],
+            answer: [0,2]
+          },
+          {
+            question: "Canva là phần mềm...",
+            options: ["Dùng cho video", "Nhiều template", "Chỉ dùng trên PC", "Phù hợp người mới"],
+            answer: [1,3]
+          },
+        ],
+        programming: [
+          {
+            question: "Ngôn ngữ nào phổ biến nhất trong lập trình web?",
+            options: ["Python", "HTML", "C++", "JavaScript"],
+            answer: [1,3]
+          }
+        ],
+        hardware: [
+          {
+            question: "CPU viết tắt cho...?",
+            options: ["Central Process Unit", "Central Processing Unit", "Computer Processor Unit", "None"],
+            answer: [1]
+          }
+        ],
+        media: [
+          {
+            question: "Kị thuật truyền thông trực tuyến hiệu quả nhất?",
+            options: ["Tạo video ngắn", "Viết bài blog", "Tờ rơi A4", "Gửi email cá nhân"],
+            answer: [0,1]
+          }
+        ]
+      };
+
+      let current = 0;
+      let score = 0;
+      let selectedField = '';
+      let questions = [];
+
+      document.getElementById("infoForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        selectedField = document.getElementById("field").value;
+        if (!selectedField) return;
+        questions = questionSets[selectedField];
+        document.querySelector(".info-card").style.display = "none";
+        document.getElementById("quizContainer").style.display = "block";
+        current = 0;
+        score = 0;
+        renderQuestion();
+      });
+
+      function renderQuestion() {
+        const q = questions[current];
+        const container = document.getElementById("quiz");
+        container.innerHTML = `
+          <div class="question">
+            <h2>Câu ${current + 1}: ${q.question}</h2>
+            ${q.options
+              .map(
+                (opt, i) => `<button class="option" onclick="submitAnswer(${i})">${opt}</button>`
+              )
+              .join("")}
+            <div class="progress">
+              <div class="progress-bar" style="width: ${(current + 1) / questions.length * 100}%"></div>
+            </div>
+          </div>
+        `;
+      }
+
+      function submitAnswer(i) {
+        const correct = questions[current].answer;
+        if (Array.isArray(correct) ? correct.includes(i) : correct === i) score++;
+        current++;
+        if (current < questions.length) {
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }
+
+      function showResult() {
+        const container = document.getElementById("quiz");
+        container.innerHTML = `
+          <div class="text-center">
+            <h2>🎯 Bạn đã hoàn thành bài test!</h2>
+            <p>✅ Điểm số: ${score} / ${questions.length}</p>
+            <p>
+              ${score >= 7
+                ? "🌟 Rất phù hợp với mảng này!"
+                : score >= 5
+                ? "✨ Tiềm năng tốt, hãy cứ tiếp tục cố gắng!"
+                : "📘 Hãy củng cố thêm kiến thức cơ bản."}
+            </p>
+          </div>
+        `;
+      }
+    </script>
+  </body>
+</html>
